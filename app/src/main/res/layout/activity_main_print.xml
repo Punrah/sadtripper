@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:orientation="vertical"
+    app:layout_width="match_parent"
+    app:layout_height="match_parent"
+    tools:ignore="NamespaceTypo">
+    <ScrollView
+        app:layout_width="match_parent"
+        app:layout_height="match_parent">
+        <LinearLayout app:orientation="vertical" app:background="#bbd9d6" app:layout_width="match_parent" app:layout_height="match_parent">
+
+            <TextView app:id="@+id/qty" app:textSize="20dp" app:layout_width="wrap_content" app:layout_height="wrap_content" app:text="" />
+            <LinearLayout app:orientation="vertical" app:layout_width="match_parent" app:layout_height="wrap_content" >
+                <Button app:id="@+id/print"  app:layout_width="match_parent" app:layout_height="match_parent" app:layout_marginRight="10dp" app:text="Print"   />
+                <Button app:layout_marginTop="50dp" app:id="@+id/confirm"  app:layout_width="match_parent" app:layout_height="match_parent" app:text="Confirm"  />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

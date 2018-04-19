@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group>
+        <item
+            android:id="@+id/nav_transaction"
+            android:title="Transaction" />
+        <item
+            android:id="@+id/nav_list_transaction"
+            android:title="List Transaction" />
+        <item
+            android:id="@+id/nav_upload_transaction"
+            android:title="Upload Transaction" />
+        <item
+            android:id="@+id/nav_list_farmer"
+            android:title="Data Status" />
+        <item
+            android:id="@+id/nav_sinkron_farmer"
+            android:title="Start Transaction" />
+
+    </group>
+
+
+</menu>
