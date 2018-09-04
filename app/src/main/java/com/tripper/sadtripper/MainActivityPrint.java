@@ -37,7 +37,9 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.UUID;
 
 public class MainActivityPrint extends AppCompatActivity implements Runnable {
@@ -94,6 +96,10 @@ public class MainActivityPrint extends AppCompatActivity implements Runnable {
             if (MainActivityPrint.this.bluetoothAdapter == null) {
                 Toast.makeText(MainActivityPrint.this, "Message1", Toast.LENGTH_SHORT).show();
             } else if (MainActivityPrint.this.bluetoothAdapter.isEnabled()) {
+
+
+
+
                 MainActivityPrint.this.startActivityForResult(new Intent(MainActivityPrint.this, BTListActivity.class), 1);
             } else {
                 MainActivityPrint.this.startActivityForResult(new Intent("android.bluetooth.adapter.action.REQUEST_ENABLE"), 2);
@@ -109,6 +115,11 @@ public class MainActivityPrint extends AppCompatActivity implements Runnable {
 
             public void run() {
                 try {
+                    byte[] format = { 27, 33, 0 };
+                    byte[] arrayOfByte1 = { 27, 33, 0 };
+                    format[2] = ((byte)(0x8 | arrayOfByte1[2]));
+                    MainActivityPrint.this.bluetoothSocket.getOutputStream().write(format);
+
                     MainActivityPrint.this.bluetoothSocket.getOutputStream().write(MainActivityPrint.this.printText.getText().toString().getBytes(Charset.forName("UTF-8")));
                 } catch (Exception e) {
                     Log.e("MainActivityPrint", "Exe ", e);
@@ -208,6 +219,16 @@ public class MainActivityPrint extends AppCompatActivity implements Runnable {
             jum = Double.parseDouble(qty)* Double.parseDouble(price);
         }
 
+        double rest = jum % 500;
+        if(rest<250)
+        {
+            jum=jum-rest;
+        }
+        else
+        {
+            jum=jum+(500-rest);
+        }
+
 
 
         DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
@@ -251,9 +272,25 @@ public class MainActivityPrint extends AppCompatActivity implements Runnable {
         if (MainActivityPrint.this.bluetoothAdapter == null) {
             Toast.makeText(MainActivityPrint.this, "Message1", Toast.LENGTH_SHORT).show();
         } else if (MainActivityPrint.this.bluetoothAdapter.isEnabled()) {
-            this.bluetoothDevice = this.bluetoothAdapter.getRemoteDevice("0F:02:17:B1:63:41");
-           new Thread(this).start();
+
+            this.bluetoothDevice = this.bluetoothAdapter.getRemoteDevice("00:11:22:33:44:55");
+             new Thread(this).start();
             this.print.setOnClickListener(new C02473());
+
+//            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+//            startActivity(enableBtIntent);
+//
+//            Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
+//            // If there are paired devices
+//            if (pairedDevices.size() > 0) {
+//                // Loop through paired devices
+//                for (BluetoothDevice device : pairedDevices) {
+//
+//
+//                    Log.e("Mac Addressess","are:  "+bluetoothAdapter.getRemoteDevice(device.getAddress()));
+//                }
+//            }
+
         } else {
 
         }
@@ -346,6 +383,9 @@ public class MainActivityPrint extends AppCompatActivity implements Runnable {
                 return;
             case 2:
                 if (mResultCode == -1) {
+                    String mDeviceAddress = mDataIntent.getExtras().getString("DeviceAddress");
+                    this.device.setText(mDeviceAddress);
+                    Log.v(TAG, "Coming incoming address " + mDeviceAddress);
                     startActivityForResult(new Intent(this, BTListActivity.class), 1);
                     return;
                 } else {

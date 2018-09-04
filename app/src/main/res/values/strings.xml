@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">sadtripper</string>
+    <string name="app_name">Patchouli Tripper</string>
+
 
 
     <string name="email_or_phone_taken_error_message">Email or phone number has already been registered</string>
@@ -52,7 +53,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>
-    <string name="title_activity_main">SAD TRIPPER</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

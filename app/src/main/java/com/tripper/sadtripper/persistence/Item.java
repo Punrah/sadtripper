@@ -10,6 +10,7 @@ public class Item {
     public String ItemCode;
     public String Description;
     public String Packing;
+    public double Price;
 
 
     public String getItemCode() {
@@ -34,5 +35,13 @@ public class Item {
 
     public void setPacking(String packing) {
         Packing = packing;
+    }
+
+    public double getPrice() {
+        return Price;
+    }
+
+    public void setPrice(double price) {
+        Price = price;
     }
 }

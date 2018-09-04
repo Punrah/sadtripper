@@ -176,12 +176,12 @@
                     android:orientation="vertical">
 
 
-                    <EditText
+                    <TextView
                         android:id="@+id/description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="0dp"
-                        android:textSize="12dp" />
+                        android:textSize="16dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -215,12 +215,12 @@
                     android:orientation="vertical">
 
 
-                    <EditText
+                    <TextView
                         android:id="@+id/packing"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="0dp"
-                        android:textSize="12dp" />
+                        android:textSize="16dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -254,13 +254,14 @@
                     android:orientation="vertical">
 
 
-                    <EditText
+                    <TextView
+
                         android:id="@+id/price"
                         android:inputType="numberDecimal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="0dp"
-                        android:textSize="12dp" />
+                        android:textSize="16dp" />
                 </LinearLayout>
 
             </LinearLayout>

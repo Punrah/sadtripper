@@ -22,6 +22,8 @@ import java.util.regex.Pattern;
 
 public  class Formater extends Application {
 
+   static String  kode="P";
+
     public static String getPrice(String price)
     {
         NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
@@ -94,7 +96,7 @@ public  class Formater extends Application {
         String formatted = String.format("%04d", poNumber);
         DateFormat df = new SimpleDateFormat("yy"); // Just the year, with 2 digits
         String formattedDate = df.format(Calendar.getInstance().getTime());
-String val="POW-A"+formattedDate+formatted;
+String val="POW-"+kode+formattedDate+formatted;
 return val;
 
 
@@ -107,11 +109,11 @@ return val;
         String formattedDate = df.format(Calendar.getInstance().getTime());
         String val;
         if(lotNumber==0) {
-             val = "LOW-A" + formattedDate + formatted;
+             val = "LOW-"+kode + formattedDate + formatted;
         }
         else
         {
-            val = "LOW-A" + formattedDate + formatted+"-"+lotNumber;
+            val = "LOW-"+kode + formattedDate + formatted+"-"+lotNumber;
         }
         return val;
     }
@@ -121,7 +123,7 @@ return val;
         String formatted = String.format("%04d", a);
         DateFormat df = new SimpleDateFormat("yy"); // Just the year, with 2 digits
         String formattedDate = df.format(Calendar.getInstance().getTime());
-        String val="TRA-"+formattedDate+formatted;
+        String val="TR"+kode+"-"+formattedDate+formatted;
         return val;
 
 

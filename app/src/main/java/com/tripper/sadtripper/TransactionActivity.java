@@ -29,9 +29,9 @@ public class TransactionActivity extends AppCompatActivity {
     private ItemSQLiteHandler dbi;
     Spinner spinner;
     Spinner itemCodeEditText;// = findViewById(R.id.itemCode);
-    EditText descriptionEditText;// = findViewById(R.id.description);
-    EditText packingEditText;// = findViewById(R.id.packing);
-    EditText priceEditText;// = findViewById(R.id.price);
+    TextView descriptionEditText;// = findViewById(R.id.description);
+    TextView packingEditText;// = findViewById(R.id.packing);
+    TextView priceEditText;// = findViewById(R.id.price);
     EditText qtyEditText;// = findViewById(R.id.qty);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,8 @@ public class TransactionActivity extends AppCompatActivity {
         farmerNameTextView.setText(""+listFarmer.get(0).farmerName);
 
 
-        priceEditText.requestFocus();
+        qtyEditText.requestFocus();
+
 
 
 
@@ -135,8 +136,8 @@ buttonBuy.setOnClickListener(new View.OnClickListener() {
 
                 descriptionEditText.setText(finalItems.get(position).getDescription());
                 packingEditText.setText(finalItems.get(position).getPacking());
-                priceEditText.setText("");
-                priceEditText.requestFocus();
+                priceEditText.setText(String.valueOf(finalItems.get(position).getPrice()));
+                qtyEditText.requestFocus();
                 qtyEditText.setText("");
             }
 
@@ -173,8 +174,7 @@ buttonBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
-                priceEditText.setText("");
-                priceEditText.requestFocus();
+                qtyEditText.requestFocus();
                 qtyEditText.setText("");
             }
 

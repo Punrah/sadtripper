@@ -36,6 +36,7 @@ public class ItemSQLiteHandler extends SQLiteOpenHelper {
 	private static final String itemCodeKey = "e";
 	private static final String descriptionKey = "f";
 	private static final String packingKey = "i";
+	private static final String priceKey = "j";
 
 
 
@@ -53,6 +54,7 @@ public class ItemSQLiteHandler extends SQLiteOpenHelper {
 
 				+ itemCodeKey + " TEXT,"
 				+ descriptionKey + " TEXT,"
+				+ priceKey + " TEXT,"
 
 				+ packingKey + " TEXT" + ")";
 
@@ -83,6 +85,8 @@ public class ItemSQLiteHandler extends SQLiteOpenHelper {
 		values.put(descriptionKey,user.getDescription());
 
 		values.put(packingKey,user.getPacking());
+		values.put(priceKey,user.getPrice());
+
 
 
 		// Inserting Row
@@ -101,6 +105,8 @@ public class ItemSQLiteHandler extends SQLiteOpenHelper {
 		values.put(descriptionKey,user.getDescription());
 
 		values.put(packingKey,user.getPacking());
+		values.put(priceKey,user.getPrice());
+
 
 
 		// Inserting Row
@@ -129,6 +135,7 @@ public class ItemSQLiteHandler extends SQLiteOpenHelper {
 			user.ItemCode =cursor.getString(cursor.getColumnIndex(itemCodeKey));
 			user.Description =cursor.getString(cursor.getColumnIndex(descriptionKey));
 			user.Packing =cursor.getString(cursor.getColumnIndex(packingKey));
+			user.Price =Double.parseDouble(cursor.getString(cursor.getColumnIndex(priceKey)));
 			listFarmer.add(user);
 
 		}

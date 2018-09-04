@@ -252,6 +252,7 @@ public class SinkronFarmerFragment extends Fragment implements Runnable  {
                             item.ItemCode = jsonObject.getString("ItemCode");
                             item.Description = jsonObject.getString("Description");
                             item.Packing = jsonObject.getString("Packing");
+                            item.Price = jsonObject.getDouble("Price");
                             listItem.add(item);
                         }
                         JSONArray jsonArray = obj.getJSONArray("result");
